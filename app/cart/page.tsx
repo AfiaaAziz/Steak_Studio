@@ -21,12 +21,12 @@ const money = (n: number) =>
 type Row = {
   slug: string;
   name: string;
-  price: string; 
+  price: string;
   imageUrl: string;
   qty: number;
 };
 
-const makeRow = (m:  MenuItem, qty = 1): Row => ({
+const makeRow = (m: MenuItem, qty = 1): Row => ({
   slug: m.slug,
   name: m.name,
   price: m.price,
@@ -42,7 +42,7 @@ export default function CartPage() {
   const seeded = useMemo<Row[]>(() => {
     const base = menuData.slice(0, 2).map((m) => makeRow(m));
     if (!slugFromQuery) return base;
-    const found = menuData.find((m: any) => m.slug === slugFromQuery);
+    const found = menuData.find((m) => m.slug === slugFromQuery);
     if (!found) return base;
     const withClicked = makeRow(found, qtyFromQuery);
     return [withClicked, ...base.filter((r) => r.slug !== withClicked.slug)];
@@ -50,7 +50,7 @@ export default function CartPage() {
 
   const [rows, setRows] = useState<Row[]>(seeded);
   const [couponCode, setCouponCode] = useState("");
-  const [couponValue, setCouponValue] = useState(0); 
+  const [couponValue, setCouponValue] = useState(0);
 
   const inc = (slug: string) =>
     setRows((rs) =>
@@ -69,7 +69,7 @@ export default function CartPage() {
     (sum, r) => sum + priceToNumber(r.price) * r.qty,
     0
   );
-  const shipping = 0; 
+  const shipping = 0;
   const total = Math.max(0, orderSubtotal + shipping - couponValue);
 
   const applyCoupon = () => {
