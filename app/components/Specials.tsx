@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -60,10 +61,12 @@ export default function SpecialsSection() {
   const next = () =>
     setActive(categories[(categories.indexOf(active) + 1) % categories.length]);
 
+  const firstRow = categories.slice(0, 3); 
+  const secondRow = categories.slice(3);  
+
   return (
     <section id="specials" className="py-16 sm:py-20 bg-background-500 w-full">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      
         <div className="text-center mb-12 sm:mb-14">
           <p className="tracking-[0.15em] text-xs font-semibold mb-3 text-brand-500">SPECIALS</p>
           <h2 className="font-bold text-3xl mb-6 text-Gray-200">Check out our menu</h2>
@@ -72,30 +75,67 @@ export default function SpecialsSection() {
           </p>
         </div>
 
-        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 mb-10">
-          <div className="flex items-center justify-center overflow-x-auto whitespace-nowrap">
-            {categories.map((c, i) => (
-              <div key={c} className="flex items-center">
+        <div className="mb-10">
+          <div
+            role="tablist"
+            className="
+              grid grid-cols-3 gap-2 sm:gap-3
+              max-w-[420px] sm:max-w-[500px] mx-auto
+              place-items-center
+              lg:hidden
+            "
+          >
+            {firstRow.map((c) => (
+              <button
+                key={c}
+                role="tab"
+                aria-selected={active === c}
+                onClick={() => setActive(c)}
+                className={`w-full rounded-md border px-2.5 sm:px-4 py-2 sm:py-3 text-[11px] sm:text-sm font-medium transition-colors
+                  ${active === c ? "bg-brand-500 text-white border-brand-500" : "bg-white text-brand-500 border-gray-300"}
+                `}
+              >
+                {c.toUpperCase()}
+              </button>
+            ))}
+
+            <div className="col-span-3 grid grid-cols-2 gap-2 sm:gap-3 place-items-center mt-2">
+              {secondRow.map((c) => (
                 <button
+                  key={c}
+                  role="tab"
+                  aria-selected={active === c}
                   onClick={() => setActive(c)}
-                  className={`px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium transition-colors whitespace-nowrap border rounded-md
+                  className={`w-full rounded-md border px-2.5 sm:px-4 py-2 sm:py-3 text-[11px] sm:text-sm font-medium transition-colors
                     ${active === c ? "bg-brand-500 text-white border-brand-500" : "bg-white text-brand-500 border-gray-300"}
                   `}
                 >
                   {c.toUpperCase()}
                 </button>
-                {i < categories.length - 1 && (
-                  <div
-                    className="h-6 w-px bg-gray-300 lg:mx-3"
-                    aria-hidden="true"
-                  />
-                )}
-              </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            role="tablist"
+            className="hidden lg:grid grid-cols-5 gap-6 place-items-center"
+          >
+            {categories.map((c) => (
+              <button
+                key={c}
+                role="tab"
+                aria-selected={active === c}
+                onClick={() => setActive(c)}
+                className={`w-full rounded-md border px-4 py-3 text-sm md:text-base font-medium transition-colors
+                  ${active === c ? "bg-brand-500 text-white border-brand-500" : "bg-white text-brand-500 border-gray-300"}
+                `}
+              >
+                {c.toUpperCase()}
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           <div className="relative w-full max-w-[489px] mx-auto">
             <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[615px] overflow-hidden">
@@ -107,24 +147,24 @@ export default function SpecialsSection() {
                 priority
               />
               <button
-                className="absolute left-3 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black/50 hover:bg-brand-500 text-white grid place-items-center"
+                className="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 md:h-10 md:w-10 rounded-full bg-black/50 hover:bg-brand-500 text-white grid place-items-center active:scale-95"
                 onClick={prev}
-                aria-label="Previous"
+                aria-label="Previous image"
               >
-                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+                <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
               </button>
               <button
-                className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-black/50 hover:bg-brand-500 text-white grid place-items-center"
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-9 w-9 md:h-10 md:w-10 rounded-full bg-black/50 hover:bg-brand-500 text-white grid place-items-center active:scale-95"
                 onClick={next}
-                aria-label="Next"
+                aria-label="Next image"
               >
-                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
               </button>
             </div>
 
             <div className="w-full flex items-center justify-center px-4 py-6 bg-brand-500">
               <Link href="/menu">
-                <button className="bg-brand-500 text-white text-sm sm:text-base md:text-lg font-semibold px-6 py-3 rounded-2xl hover:bg-brand-600 hover:text-white transition-all duration-300 flex items-center gap-2">
+                <button className="bg-brand-500 text-white text-sm sm:text-base md:text-lg font-semibold px-6 py-3 rounded-2xl hover:bg-brand-600 transition-all duration-300 flex items-center gap-2">
                   VIEW ALL MENU <span aria-hidden>→</span>
                 </button>
               </Link>
