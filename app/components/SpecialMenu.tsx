@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const menuItems = [
-  { id: 1, name: "Burger", imageSrc: "/images/burger.png", link: "/menu#menu-banner1" },
+  { id: 1, name: "Burger", imageSrc: "/images/Burger.png", link: "/menu#menu-banner1" },
   { id: 2, name: "Fried Chicken", imageSrc: "/images/FriedChicken.png", link: "/menu#menu-banner2" },
   { id: 3, name: "Grilled Chicken", imageSrc: "/images/GrilledChicken.png", link: "/menu#menu-banner3" },
   { id: 4, name: "Pizza", imageSrc: "/images/Pizza.png", link: "/menu#menu-banner4" },
