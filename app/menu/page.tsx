@@ -170,9 +170,10 @@ const MenuPage = () => {
         </div>
 
         {/* ==== WIDE BANNER 4 ==== */}
-        <div 
-         id="menu-banner4"
-        className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+        <div
+          id="menu-banner4"
+          className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+        >
           <Image
             src="/images/banner1.png"
             alt="Special Delicious Food Menu 20% Discount"
@@ -186,11 +187,11 @@ const MenuPage = () => {
           ))}
         </div>
 
-
-         {/* ==== WIDE BANNER five ==== */}
-        <div 
-         id="menu-banner5"
-        className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+        {/* ==== WIDE BANNER five ==== */}
+        <div
+          id="menu-banner5"
+          className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+        >
           <Image
             src="/images/banner1.png"
             alt="Special Delicious Food Menu 20% Discount"

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Vendors from "../../components/Vendors";
-import { menuData, bottomMenuItems, type MenuItem } from "../../data/menuData";
+import { menuData, bottomMenuItems } from "../../data/menuData";
 import Link from "next/link";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 type ItemCardProps = {
   name: string;
@@ -53,8 +53,8 @@ function MenuItemCard({
   );
 }
 
-export default function MenuDetail({ params }: Props) {
-  const { slug } = params;
+export default async function MenuDetail({ params }: Props) {
+  const { slug } = await params;
 
   const item = menuData.find((m) => m.slug === slug);
   if (!item) {
