@@ -85,16 +85,16 @@ const AboutUsPage = () => {
 
             <div className="flex-1">
               <h2 className="text-xl sm:text-2xl font-bold text-Gray-200 mb-4 sm:mb-6 leading-tight">
-                Opalaye yellowtail snapper, velvet catfish, greyedriver banded
-                killifish, Old World rivuline catalufa eagle ray Moorish idol.
+                Opalaye yellowtail snapper, velvet catfish greyedriver banded
+                killifish Old World rivuline catalufa eagle ray Moorish idol.
                 Herring smelt barbeled dragonfish, tommy ruff.
               </h2>
               <p className="text-Gray-200 text-sm sm:text-base leading-relaxed">
-                Queen danio velvet catfish Sacramento blackfish, bullhead shark,
+                Queen danio velvet catfish Sacramento blackfish bullhead shark,
                 rock bass bowfin blackfish Black swallower. Australian lungfish
                 swamp eel paradise fish. Hake cookie-cutter shark silver carp,
-                mudskipper, dogfish. Slickhead, moray eel mudminnow. Long-finned
-                pilotfish, bluegill toadfish, orangespine unicorn fish. Manta
+                mudskipper dogfish. Slickhead, moray eel mudminnow. Long-finned
+                pilotfish bluegill toadfish orangespine unicorn fish. Manta
                 Ray Moorish idol.
               </p>
             </div>
@@ -125,18 +125,18 @@ const AboutUsPage = () => {
 
             <div className="lg:w-1/2 w-full">
               <p className="text-Gray-200 text-base sm:text-lg leading-relaxed">
-                In the heart of Johar Town, right across from the bustling
-                Shaukat Khanum Hospital, Steak Studio was born in 2018. What
+                In the heart of Johar Town right across from the bustling
+                Shaukat Khanum Hospital Steak Studio was born in 2018. What
                 started with a passion for perfecting steak soon turned into the
                 most talked-about steak destination in town, celebrated for
                 winning the hearts of our customers with every plate served. Our
-                patrons often say, Your generosity shows in your servings, a
+                patrons often say, Your generosity shows in your servings a
                 compliment that embodies our commitment to hearty portions and
                 genuine hospitality. Encouraged by our success and the loyalty
-                of our guests, we opened our second branch on Canal Bank Road.
+                of our guests we opened our second branch on Canal Bank Road.
                 This new location not only continues our tradition of excellence
                 in steaks but also embraces the joy of celebrations by offering
-                event organization services, including birthday decor and more.
+                event organization services including birthday decor and more.
               </p>
             </div>
           </div>
@@ -164,9 +164,9 @@ const AboutUsPage = () => {
                   Our Chef
                 </h2>
                 <p className="text-Gray-200 text-sm sm:text-base mb-6 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam…
+                  Ut enim ad minim veniam.
                 </p>
 
                 <Link
