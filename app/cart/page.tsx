@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -34,7 +35,16 @@ const makeRow = (m: MenuItem, qty = 1): Row => ({
   qty,
 });
 
+
 export default function CartPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-Gray-200">Loading cart...</div>}>
+      <CartContent />
+    </Suspense>
+  );
+}
+
+function CartContent() {
   const sp = useSearchParams();
   const slugFromQuery = sp.get("slug") ?? undefined;
   const qtyFromQuery = Math.max(1, Number(sp.get("qty") || 1));

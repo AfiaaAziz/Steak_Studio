@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -27,6 +28,14 @@ const toRow = (m: MenuItem, qty = 1): Row => ({
 });
 
 export default function WishlistPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-Gray-200">Loading wishlist...</div>}>
+      <WishlistContent />
+    </Suspense>
+  );
+}
+
+ function WishlistContent() {
   const sp = useSearchParams();
   const slugFromQuery = sp.get("slug") ?? undefined;
 
