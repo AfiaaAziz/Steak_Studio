@@ -8,19 +8,19 @@ const offerImages = [
     id: 1,
     src: "/images/offer1.png",
     alt: "Today's Special Food Menu",
-    href: "/offers/1", 
+    href: "/menu#menu-banner1",
   },
   {
     id: 2,
     src: "/images/offer2.png",
     alt: "Super Delicious BURGER",
-    href: "/offers/2",
+    href: "/menu#menu-banner2",
   },
   {
     id: 3,
     src: "/images/offer3.png",
     alt: "Triple Stack BURGER",
-    href: "/offers/3",
+    href: "/menu#menu-banner3",
   },
 ];
 

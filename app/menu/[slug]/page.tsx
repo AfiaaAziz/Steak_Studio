@@ -73,48 +73,34 @@ export default async function MenuDetail({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1240px] px-4 py-10">
-        <div className="grid gap-8 md:grid-cols-2 items-start">
-          <div className="w-full md:w-[594px] mx-auto md:mx-0">
-            <div className="relative w-full md:w-[594px] aspect-[594/334] md:h-[334px] overflow-hidden rounded-lg">
-              <Image
-                src={item.imageUrl}
-                alt={item.name}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-3 md:gap-[20px]">
-              <div className="relative w-full md:w-[287px] aspect-[287/202] md:h-[202px] overflow-hidden rounded-lg">
-                <Image
-                  src={(item as any).gallery?.[0] ?? item.imageUrl}
-                  alt={`${item.name} thumb 1`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative w-full md:w-[287px] aspect-[287/202] md:h-[202px] overflow-hidden rounded-lg">
-                <Image
-                  src={(item as any).gallery?.[1] ?? item.imageUrl}
-                  alt={`${item.name} thumb 2`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
+      
 
-          <div className="flex flex-col">
-            <p className="text-Gray-200 leading-6 text-center md:text-left">
-              {item.description}
-            </p>
-            <button className="mt-12 w-max rounded-2xl bg-brand-500 px-8 py-4 text-white text-lg font-semibold shadow-md hover:shadow-lg transition mx-auto md:mx-0">
-              Order Now
-            </button>
-          </div>
-        </div>
-      </section>
+<section className="mx-auto max-w-[1240px] px-4 py-10">
+  <div className="grid gap-8 md:grid-cols-2 items-start">
+    <div className="w-full md:w-[594px] md:h-[542px] mx-auto md:mx-0">
+      <div className="relative w-full aspect-[594/542] md:h-full overflow-hidden rounded-lg">
+        <Image
+          src={item.imageUrl}
+          alt={item.name}
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    </div>
+
+    <div className="flex flex-col md:h-[542px]">
+      <p className="text-Gray-200 leading-6 text-center md:text-left">
+        {item.description}
+      </p>
+
+      <button className="mt-12 md:mt-auto w-max rounded-2xl bg-brand-500 px-8 py-4 text-white text-lg font-semibold shadow-md hover:shadow-lg transition mx-auto md:mx-0">
+        Order Now
+      </button>
+    </div>
+  </div>
+</section>
+
 
       <div className="mx-auto max-w-[1240px] px-4 mt-2">
         <h3 className="text-center text-2xl font-bold text-brand-500">

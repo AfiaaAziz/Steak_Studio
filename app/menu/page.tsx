@@ -24,7 +24,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
 }) => (
   <Link href={link} className="block">
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 rounded-2xl bg-background-500 p-4 sm:px-5 sm:py-3 shadow-[0_2px_10px_rgba(0,0,0,0.06)] ring-1 ring-gray-200 w-full hover:shadow-lg transition lg:h-[170px]">
-     
       <div className="flex-1 min-w-0 text-center sm:text-left">
         <h3 className="truncate text-base sm:text-[18px] font-semibold text-Gray-200">
           {name}
@@ -36,7 +35,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
           {price}
         </p>
       </div>
-
 
       <div className="relative w-full max-w-[150px] aspect-square shrink-0 rounded-xl bg-gray-100 p-1">
         <Image
@@ -115,7 +113,12 @@ const MenuPage = () => {
           </div>
         </div>
 
-        <div className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+        {/* ==== WIDE BANNER 1 ==== */}
+
+        <div
+          id="menu-banner1"
+          className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+        >
           <Image
             src="/images/banner1.png"
             alt="Special Delicious Food Menu 20% Discount"
@@ -129,7 +132,12 @@ const MenuPage = () => {
           ))}
         </div>
 
-        <div className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+        {/* ==== WIDE BANNER 2 ==== */}
+
+        <div
+          id="menu-banner2"
+          className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+        >
           <Image
             src="/images/banner1.png"
             alt="Special Delicious Food Menu 20% Discount"
@@ -144,7 +152,10 @@ const MenuPage = () => {
         </div>
 
         {/* ==== WIDE BANNER 3 ==== */}
-        <div className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+        <div
+          id="menu-banner3"
+          className="relative my-10 h-32 sm:h-40 md:h-56 w-full overflow-hidden rounded-2xl ring-1 ring-gray-200 shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+        >
           <Image
             src="/images/banner1.png"
             alt="Special Delicious Food Menu 20% Discount"
