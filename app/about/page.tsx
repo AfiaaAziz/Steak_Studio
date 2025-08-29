@@ -156,7 +156,7 @@ const AboutUsPage = () => {
           />
 
           <div className="relative z-20 w-full">
-            <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
+<div className="container mx-auto flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8">
               <div className="lg:w-1/2 text-center lg:text-left">
                 <p className="text-brand-500 font-semibold text-base sm:text-lg mb-2">
                   TASTY AND CRUNCHY
