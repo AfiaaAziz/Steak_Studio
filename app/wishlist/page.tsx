@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -43,12 +42,17 @@ export default function WishlistPage() {
   const [rows, setRows] = useState<Row[]>(seeded);
 
   const inc = (slug: string) =>
-    setRows((rs) => rs.map((r) => (r.slug === slug ? { ...r, qty: r.qty + 1 } : r)));
+    setRows((rs) =>
+      rs.map((r) => (r.slug === slug ? { ...r, qty: r.qty + 1 } : r))
+    );
   const dec = (slug: string) =>
     setRows((rs) =>
-      rs.map((r) => (r.slug === slug ? { ...r, qty: Math.max(1, r.qty - 1) } : r))
+      rs.map((r) =>
+        r.slug === slug ? { ...r, qty: Math.max(1, r.qty - 1) } : r
+      )
     );
-  const remove = (slug: string) => setRows((rs) => rs.filter((r) => r.slug !== slug));
+  const remove = (slug: string) =>
+    setRows((rs) => rs.filter((r) => r.slug !== slug));
 
   return (
     <main className="min-h-screen w-full bg-background-500">
@@ -71,10 +75,16 @@ export default function WishlistPage() {
             <thead style={{ backgroundColor: BROWN }} className="text-white">
               <tr>
                 <th className="text-left py-3 px-5 font-semibold">Product</th>
-                <th className="text-left py-3 px-5 font-semibold">Product Name</th>
-                <th className="text-left py-3 px-5 font-semibold">Unit Price</th>
+                <th className="text-left py-3 px-5 font-semibold">
+                  Product Name
+                </th>
+                <th className="text-left py-3 px-5 font-semibold">
+                  Unit Price
+                </th>
                 <th className="text-left py-3 px-5 font-semibold">Quantity</th>
-                <th className="text-left py-3 px-5 font-semibold">Add to cart</th>
+                <th className="text-left py-3 px-5 font-semibold">
+                  Add to cart
+                </th>
                 <th className="text-left py-3 px-5 font-semibold">Action</th>
               </tr>
             </thead>
@@ -87,14 +97,23 @@ export default function WishlistPage() {
                 >
                   <td className="py-4 px-5">
                     <div className="relative w-[110px] h-[72px] rounded-md overflow-hidden ring-1 ring-gray-300">
-                      <Image src={r.imageUrl} alt={r.name} fill className="object-cover" />
+                      <Image
+                        src={r.imageUrl}
+                        alt={r.name}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </td>
                   <td className="py-4 px-5">
-                    <p className="font-semibold text-Gray-200 leading-snug">{r.name}</p>
+                    <p className="font-semibold text-Gray-200 leading-snug">
+                      {r.name}
+                    </p>
                   </td>
                   <td className="py-4 px-5">
-                    <span className="font-semibold text-Gray-200">{r.price}</span>
+                    <span className="font-semibold text-Gray-200">
+                      {r.price}
+                    </span>
                   </td>
                   <td className="py-4 px-5">
                     <div className="flex items-center gap-2">
@@ -145,16 +164,26 @@ export default function WishlistPage() {
           </table>
 
           {rows.length === 0 && (
-            <div className="px-5 py-10 text-center text-Gray-200">No items found.</div>
+            <div className="px-5 py-10 text-center text-Gray-200">
+              No items found.
+            </div>
           )}
         </div>
 
         <div className="md:hidden space-y-5">
           {rows.map((r) => (
-            <div key={r.slug} className="rounded-lg ring-1 ring-gray-200 p-4 bg-background-500">
+            <div
+              key={r.slug}
+              className="rounded-lg ring-1 ring-gray-200 p-4 bg-background-500"
+            >
               <div className="grid grid-cols-[96px,1fr] gap-3 items-start">
                 <div className="relative w-24 h-20 rounded-md overflow-hidden ring-1 ring-gray-300">
-                  <Image src={r.imageUrl} alt={r.name} fill className="object-cover" />
+                  <Image
+                    src={r.imageUrl}
+                    alt={r.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
 
                 <div className="min-w-0">
@@ -162,7 +191,10 @@ export default function WishlistPage() {
                     {r.name}
                   </p>
                   <p className="mt-1 text-sm text-Gray-200/80">
-                    Unit price: <span className="font-semibold text-Gray-200">{r.price}</span>
+                    Unit price:{" "}
+                    <span className="font-semibold text-Gray-200">
+                      {r.price}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -212,7 +244,9 @@ export default function WishlistPage() {
           ))}
 
           {rows.length === 0 && (
-            <div className="px-4 py-10 text-center text-Gray-200">No items found.</div>
+            <div className="px-4 py-10 text-center text-Gray-200">
+              No items found.
+            </div>
           )}
         </div>
       </section>

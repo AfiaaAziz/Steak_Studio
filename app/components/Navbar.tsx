@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="bg-White-200 shadow-md p-4 flex items-center justify-between relative">
       <div className="flex items-center">
         <Image
-          src="/images/logo.jpg" 
+          src="/images/logo.jpg"
           alt="Steak Studio Logo"
           width={80}
           height={80}
