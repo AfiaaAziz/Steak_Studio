@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Vendors from "../components/Vendors";
-import { menuData } from "../data/menuData";
+import { menuData, type MenuItem } from "../data/menuData";
 
 const BROWN = "#712518";
 const ROW_BORDER = "#a15b4f";
@@ -18,7 +18,7 @@ type Row = {
   qty: number;
 };
 
-const toRow = (m: any, qty = 1): Row => ({
+const toRow = (m: MenuItem, qty = 1): Row => ({
   slug: m.slug,
   name: m.name,
   price: m.price,
@@ -30,10 +30,10 @@ export default function WishlistPage() {
   const sp = useSearchParams();
   const slugFromQuery = sp.get("slug") ?? undefined;
 
-  const seeded = useMemo(() => {
-    const base = menuData.slice(0, 6).map((m: any) => toRow(m));
+  const seeded = useMemo<Row[]>(() => {
+    const base = menuData.slice(0, 6).map(toRow);
     if (!slugFromQuery) return base;
-    const found = menuData.find((m: any) => m.slug === slugFromQuery);
+    const found = menuData.find((m: MenuItem) => m.slug === slugFromQuery);
     if (!found) return base;
     const rest = base.filter((r) => r.slug !== slugFromQuery);
     return [toRow(found), ...rest];
