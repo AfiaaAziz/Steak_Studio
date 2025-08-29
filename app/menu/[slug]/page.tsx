@@ -14,7 +14,14 @@ type ItemCardProps = {
   slug?: string;
 };
 
-function MenuItemCard({ name, description, price, imageUrl, link, slug }: ItemCardProps) {
+function MenuItemCard({
+  name,
+  description,
+  price,
+  imageUrl,
+  link,
+  slug,
+}: ItemCardProps) {
   const href = link ?? (slug ? `/menu/${slug}` : "#");
   return (
     <Link href={href} className="block">
@@ -47,7 +54,7 @@ function MenuItemCard({ name, description, price, imageUrl, link, slug }: ItemCa
 }
 
 export default async function MenuDetail({ params }: Props) {
-  const { slug } = await params; 
+  const { slug } = await params;
 
   const item = menuData.find((m: any) => m.slug === slug);
   if (!item) {
@@ -73,34 +80,35 @@ export default async function MenuDetail({ params }: Props) {
         </div>
       </section>
 
-      
+      <section className="mx-auto max-w-[1240px] px-4 py-10">
+        <div className="grid gap-8 md:grid-cols-2 items-start">
+          <div className="w-full md:w-[594px] md:h-[542px] mx-auto md:mx-0">
+            <div className="relative w-full aspect-[594/542] md:h-full overflow-hidden rounded-lg">
+              <Image
+                src={item.imageUrl}
+                alt={item.name}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
 
-<section className="mx-auto max-w-[1240px] px-4 py-10">
-  <div className="grid gap-8 md:grid-cols-2 items-start">
-    <div className="w-full md:w-[594px] md:h-[542px] mx-auto md:mx-0">
-      <div className="relative w-full aspect-[594/542] md:h-full overflow-hidden rounded-lg">
-        <Image
-          src={item.imageUrl}
-          alt={item.name}
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-    </div>
+          <div className="flex flex-col md:h-[542px]">
+            <p className="text-Gray-200 leading-6 text-center md:text-left">
+              {item.description}
+            </p>
 
-    <div className="flex flex-col md:h-[542px]">
-      <p className="text-Gray-200 leading-6 text-center md:text-left">
-        {item.description}
-      </p>
-
-      <button className="mt-12 md:mt-auto w-max rounded-2xl bg-brand-500 px-8 py-4 text-white text-lg font-semibold shadow-md hover:shadow-lg transition mx-auto md:mx-0">
-        Order Now
-      </button>
-    </div>
-  </div>
-</section>
-
+            {/* go to /wishlist and pass the slug so the item appears in the list */}
+            <Link
+              href={`/wishlist?slug=${item.slug}`}
+              className="mt-12 md:mt-auto w-max rounded-2xl bg-brand-500 px-8 py-4 text-white text-lg font-semibold shadow-md hover:shadow-lg transition mx-auto md:mx-0"
+            >
+              Order Now
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <div className="mx-auto max-w-[1240px] px-4 mt-2">
         <h3 className="text-center text-2xl font-bold text-brand-500">
