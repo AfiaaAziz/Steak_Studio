@@ -1,3 +1,4 @@
+// eslint.config.mjs
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
@@ -9,8 +10,11 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
+export default [
+  // Apply Next.js recommended configs
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // Your project-level settings
   {
     ignores: [
       "node_modules/**",
@@ -19,7 +23,8 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      "react/no-unescaped-entities": "off",
+    },
   },
 ];
-
-export default eslintConfig;
