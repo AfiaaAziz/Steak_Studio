@@ -82,22 +82,24 @@ const AboutUsPage = () => {
                 />
               </div>
             </div>
+<div className="flex-1 max-w-2xl mx-auto text-justify">
+  <h2 className="text-xl sm:text-2xl font-bold text-Gray-200 mb-4 sm:mb-6 leading-tight">
+    Opalaye yellowtail snapper, velvet catfish greyedriver banded
+    killifish Old World rivuline catalufa eagle ray Moorish idol.
+    Herring smelt barbeled dragonfish, tommy ruff.
+  </h2>
 
-            <div className="flex-1">
-              <h2 className="text-xl sm:text-2xl font-bold text-Gray-200 mb-4 sm:mb-6 leading-tight">
-                Opalaye yellowtail snapper, velvet catfish greyedriver banded
-                killifish Old World rivuline catalufa eagle ray Moorish idol.
-                Herring smelt barbeled dragonfish, tommy ruff.
-              </h2>
-              <p className="text-Gray-200 text-sm sm:text-base leading-relaxed">
-                Queen danio velvet catfish Sacramento blackfish bullhead shark,
-                rock bass bowfin blackfish Black swallower. Australian lungfish
-                swamp eel paradise fish. Hake cookie-cutter shark silver carp,
-                mudskipper dogfish. Slickhead, moray eel mudminnow. Long-finned
-                pilotfish bluegill toadfish orangespine unicorn fish. Manta Ray
-                Moorish idol.
-              </p>
-            </div>
+  <p className="text-Gray-200 text-sm sm:text-base leading-relaxed">
+    Queen danio velvet catfish Sacramento blackfish bullhead shark,
+    rock bass bowfin blackfish Black swallower. Australian lungfish
+    swamp eel paradise fish. Hake cookie-cutter shark silver carp,
+    mudskipper dogfish. Slickhead, moray eel mudminnow. Long-finned
+    pilotfish bluegill toadfish orangespine unicorn fish. Manta Ray
+    Moorish idol.
+  </p>
+</div>
+
+
           </div>
         </div>
       </section>
