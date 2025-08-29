@@ -4,16 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 const menuItems = [
-  { id: 1, name: "Burger", imageSrc: "/images/burger.png", link: "/menu/soup" },
-  { id: 2, name: "Fried Chicken", imageSrc: "/images/FriedChicken.png", link: "/menu/salad" },
-  { id: 3, name: "Grilled Chicken", imageSrc: "/images/GrilledChicken.png", link: "/menu/starter" },
-  { id: 4, name: "Pizza", imageSrc: "/images/Pizza.png", link: "/menu/steak" },
-  { id: 5, name: "Hot Dogs", imageSrc: "/images/HotDogs.png", link: "/menu/pizza" },
-  { id: 6, name: "Chicken Skewers", imageSrc: "/images/menu4.png", link: "/menu/chinese" },
-  { id: 7, name: "Greek Salad", imageSrc: "/images/Salad.png", link: "/menu/burger" },
-  { id: 8, name: "Dahi Puri", imageSrc: "/images/DahiPuri.png", link: "/menu/sandwich" },
-  { id: 9, name: "Ice cream", imageSrc: "/images/Icecream.png", link: "/menu/karahi" },
-  { id: 10, name: "Cocktail Glasses", imageSrc: "/images/CocktailGlasses.png", link: "/menu/cakes" },
+  { id: 1, name: "Burger", imageSrc: "/images/burger.png", link: "/menu#menu-banner1" },
+  { id: 2, name: "Fried Chicken", imageSrc: "/images/FriedChicken.png", link: "/menu#menu-banner2" },
+  { id: 3, name: "Grilled Chicken", imageSrc: "/images/GrilledChicken.png", link: "/menu#menu-banner3" },
+  { id: 4, name: "Pizza", imageSrc: "/images/Pizza.png", link: "/menu#menu-banner4" },
+  { id: 5, name: "Hot Dogs", imageSrc: "/images/HotDogs.png", link: "/menu#menu-banner5" },
+  { id: 6, name: "Chicken Skewers", imageSrc: "/images/menu4.png", link: "/menu#menu-banner1" },
+  { id: 7, name: "Greek Salad", imageSrc: "/images/Salad.png", link: "/menu#menu-banner2" },
+  { id: 8, name: "Dahi Puri", imageSrc: "/images/DahiPuri.png", link: "/menu#menu-banner3" },
+  { id: 9, name: "Ice cream", imageSrc: "/images/Icecream.png", link: "/menu#menu-banner4" },
+  { id: 10, name: "Cocktail Glasses", imageSrc: "/images/CocktailGlasses.png", link: "/menu#menu-banner5" },
 ];
 
 const SpecialMenu = () => {

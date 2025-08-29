@@ -16,7 +16,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Vendors from "../components/Vendors";
 
-
 const ContactUsPage = () => {
   return (
     <div className="flex flex-col bg-background-500">
@@ -24,8 +23,8 @@ const ContactUsPage = () => {
         <Image
           src="/images/contact-banner.png"
           alt="Contact Us Banner"
-          fill className="object-cover opacity-50"
-
+          fill
+          className="object-cover opacity-50"
           quality={100}
         />
         <div className="relative z-10 text-white text-center p-4">
@@ -36,7 +35,6 @@ const ContactUsPage = () => {
             sed do eiusmod tempor incididunt ut labore et dolore magna.
           </p>
         </div>
-
       </section>
 
       <main className="flex-grow container mx-auto px-4 py-12">
