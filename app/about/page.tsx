@@ -94,8 +94,8 @@ const AboutUsPage = () => {
                 rock bass bowfin blackfish Black swallower. Australian lungfish
                 swamp eel paradise fish. Hake cookie-cutter shark silver carp,
                 mudskipper dogfish. Slickhead, moray eel mudminnow. Long-finned
-                pilotfish bluegill toadfish orangespine unicorn fish. Manta
-                Ray Moorish idol.
+                pilotfish bluegill toadfish orangespine unicorn fish. Manta Ray
+                Moorish idol.
               </p>
             </div>
           </div>
@@ -130,13 +130,14 @@ const AboutUsPage = () => {
                 started with a passion for perfecting steak soon turned into the
                 most talked-about steak destination in town, celebrated for
                 winning the hearts of our customers with every plate served. Our
-                patrons often say, Your generosity shows in your servings a
-                compliment that embodies our commitment to hearty portions and
-                genuine hospitality. Encouraged by our success and the loyalty
-                of our guests we opened our second branch on Canal Bank Road.
-                This new location not only continues our tradition of excellence
-                in steaks but also embraces the joy of celebrations by offering
-                event organization services including birthday decor and more.
+                patrons often say, &ldquo;Your generosity shows in your
+                servings,&rdquo; a compliment that embodies our commitment to
+                hearty portions and genuine hospitality. Encouraged by our
+                success and the loyalty of our guests we opened our second
+                branch on Canal Bank Road. This new location not only continues
+                our tradition of excellence in steaks but also embraces the joy
+                of celebrations by offering event organization services
+                including birthday decor and more.
               </p>
             </div>
           </div>
@@ -164,9 +165,9 @@ const AboutUsPage = () => {
                   Our Chef
                 </h2>
                 <p className="text-Gray-200 text-sm sm:text-base mb-6 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam.
                 </p>
 
                 <Link
