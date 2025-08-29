@@ -4,25 +4,29 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Vendors from "../components/Vendors";
-import { menuData } from "../data/menuData";
+import { menuData, type MenuItem } from "../data/menuData";
 
 const BROWN = "#712518";
 const ROW_BORDER = "#a15b4f";
 
-// --- helpers ---
-const priceToNumber = (p: string) => Number(String(p).replace(/[^0-9.]/g, "")) || 0;
+const priceToNumber = (p: string) =>
+  Number(String(p).replace(/[^0-9.]/g, "")) || 0;
 const money = (n: number) =>
-  n.toLocaleString(undefined, { style: "currency", currency: "USD", minimumFractionDigits: 2 });
+  n.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
 
 type Row = {
   slug: string;
   name: string;
-  price: string;     // like "$150"
+  price: string; 
   imageUrl: string;
   qty: number;
 };
 
-const makeRow = (m: any, qty = 1): Row => ({
+const makeRow = (m:  MenuItem, qty = 1): Row => ({
   slug: m.slug,
   name: m.name,
   price: m.price,
@@ -35,9 +39,8 @@ export default function CartPage() {
   const slugFromQuery = sp.get("slug") ?? undefined;
   const qtyFromQuery = Math.max(1, Number(sp.get("qty") || 1));
 
-  // seed rows; put the clicked item first if present
-  const seeded = useMemo(() => {
-    const base = menuData.slice(0, 2).map((m: any) => makeRow(m));
+  const seeded = useMemo<Row[]>(() => {
+    const base = menuData.slice(0, 2).map((m) => makeRow(m));
     if (!slugFromQuery) return base;
     const found = menuData.find((m: any) => m.slug === slugFromQuery);
     if (!found) return base;
@@ -50,10 +53,17 @@ export default function CartPage() {
   const [couponValue, setCouponValue] = useState(0); // flat discount
 
   const inc = (slug: string) =>
-    setRows((rs) => rs.map((r) => (r.slug === slug ? { ...r, qty: r.qty + 1 } : r)));
+    setRows((rs) =>
+      rs.map((r) => (r.slug === slug ? { ...r, qty: r.qty + 1 } : r))
+    );
   const dec = (slug: string) =>
-    setRows((rs) => rs.map((r) => (r.slug === slug ? { ...r, qty: Math.max(1, r.qty - 1) } : r)));
-  const remove = (slug: string) => setRows((rs) => rs.filter((r) => r.slug !== slug));
+    setRows((rs) =>
+      rs.map((r) =>
+        r.slug === slug ? { ...r, qty: Math.max(1, r.qty - 1) } : r
+      )
+    );
+  const remove = (slug: string) =>
+    setRows((rs) => rs.filter((r) => r.slug !== slug));
 
   const orderSubtotal = rows.reduce(
     (sum, r) => sum + priceToNumber(r.price) * r.qty,
@@ -91,8 +101,12 @@ export default function CartPage() {
             <thead style={{ backgroundColor: BROWN }} className="text-white">
               <tr>
                 <th className="text-left py-3 px-5 font-semibold">Product</th>
-                <th className="text-left py-3 px-5 font-semibold">Product Name</th>
-                <th className="text-left py-3 px-5 font-semibold">Unit Price</th>
+                <th className="text-left py-3 px-5 font-semibold">
+                  Product Name
+                </th>
+                <th className="text-left py-3 px-5 font-semibold">
+                  Unit Price
+                </th>
                 <th className="text-left py-3 px-5 font-semibold">Quantity</th>
                 <th className="text-left py-3 px-5 font-semibold">Total</th>
                 <th className="text-left py-3 px-5 font-semibold">Action</th>
@@ -110,7 +124,12 @@ export default function CartPage() {
                     {/* product image */}
                     <td className="py-4 px-5">
                       <div className="relative w-[110px] h-[72px] rounded-md overflow-hidden ring-1 ring-gray-300">
-                        <Image src={r.imageUrl} alt={r.name} fill className="object-cover" />
+                        <Image
+                          src={r.imageUrl}
+                          alt={r.name}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     </td>
 
@@ -120,7 +139,9 @@ export default function CartPage() {
                     </td>
 
                     {/* unit price */}
-                    <td className="py-4 px-5 font-semibold text-Gray-200">{r.price}</td>
+                    <td className="py-4 px-5 font-semibold text-Gray-200">
+                      {r.price}
+                    </td>
 
                     {/* qty */}
                     <td className="py-4 px-5">
@@ -149,7 +170,9 @@ export default function CartPage() {
                     </td>
 
                     {/* total */}
-                    <td className="py-4 px-5 font-semibold text-Gray-200">{money(rowTotal)}</td>
+                    <td className="py-4 px-5 font-semibold text-Gray-200">
+                      {money(rowTotal)}
+                    </td>
 
                     {/* action */}
                     <td className="py-4 px-5">
@@ -169,7 +192,9 @@ export default function CartPage() {
           </table>
 
           {rows.length === 0 && (
-            <div className="px-5 py-10 text-center text-Gray-200">Your cart is empty.</div>
+            <div className="px-5 py-10 text-center text-Gray-200">
+              Your cart is empty.
+            </div>
           )}
         </div>
 
@@ -178,14 +203,26 @@ export default function CartPage() {
           {rows.map((r) => {
             const rowTotal = priceToNumber(r.price) * r.qty;
             return (
-              <div key={r.slug} className="rounded-lg ring-1 ring-gray-200 p-4 bg-background-500">
+              <div
+                key={r.slug}
+                className="rounded-lg ring-1 ring-gray-200 p-4 bg-background-500"
+              >
                 <div className="grid grid-cols-[96px,1fr] gap-3 items-start">
                   <div className="relative w-24 h-20 rounded-md overflow-hidden ring-1 ring-gray-300">
-                    <Image src={r.imageUrl} alt={r.name} fill className="object-cover" />
+                    <Image
+                      src={r.imageUrl}
+                      alt={r.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-semibold text-Gray-200 truncate">{r.name}</p>
-                    <p className="text-sm text-Gray-200/80">Unit price: {r.price}</p>
+                    <p className="font-semibold text-Gray-200 truncate">
+                      {r.name}
+                    </p>
+                    <p className="text-sm text-Gray-200/80">
+                      Unit price: {r.price}
+                    </p>
                     <p className="mt-1 text-sm font-semibold text-Gray-200">
                       Total: {money(rowTotal)}
                     </p>
@@ -284,12 +321,16 @@ export default function CartPage() {
 
               <div className="grid grid-cols-[1fr,auto] gap-4">
                 <span>Shipping</span>
-                <span className="font-semibold">{shipping === 0 ? "Free Shipping" : money(shipping)}</span>
+                <span className="font-semibold">
+                  {shipping === 0 ? "Free Shipping" : money(shipping)}
+                </span>
               </div>
 
               <div className="grid grid-cols-[1fr,auto] gap-4">
                 <span>Coupon</span>
-                <span className="font-semibold">{couponValue ? money(couponValue) : money(0)}</span>
+                <span className="font-semibold">
+                  {couponValue ? money(couponValue) : money(0)}
+                </span>
               </div>
 
               <hr className="my-2 border-gray-300" />
