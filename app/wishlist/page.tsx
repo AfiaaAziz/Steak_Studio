@@ -136,7 +136,7 @@ export default function WishlistPage() {
                       <input
                         readOnly
                         value={r.qty}
-                        className="w-10 h-7 text-center border border-gray-400 rounded bg-white text-Gray-200"
+                        className="w-10 h-7 text-center border border-gray-400 rounded bg-background-500 text-Gray-200"
                         aria-label="Quantity"
                       />
                       <button

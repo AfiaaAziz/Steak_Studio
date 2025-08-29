@@ -93,7 +93,7 @@ const ContactUsPage = () => {
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
                     i === activeIndex
                       ? "bg-brand-500 text-white"
-                      : "bg-white text-Gray-200 ring-1 ring-gray-300 hover:bg-gray-50"
+                      : "bg-background-500 text-Gray-200 ring-1 ring-gray-300 hover:bg-background-500"
                   }`}
                 >
                   {b.name}
