@@ -50,7 +50,7 @@ export default function CartPage() {
 
   const [rows, setRows] = useState<Row[]>(seeded);
   const [couponCode, setCouponCode] = useState("");
-  const [couponValue, setCouponValue] = useState(0); // flat discount
+  const [couponValue, setCouponValue] = useState(0); 
 
   const inc = (slug: string) =>
     setRows((rs) =>
@@ -69,11 +69,10 @@ export default function CartPage() {
     (sum, r) => sum + priceToNumber(r.price) * r.qty,
     0
   );
-  const shipping = 0; // free shipping per your mock
+  const shipping = 0; 
   const total = Math.max(0, orderSubtotal + shipping - couponValue);
 
   const applyCoupon = () => {
-    // demo: any non-empty code applies a fixed $28 discount (like your screenshot)
     setCouponValue(couponCode.trim() ? 28 : 0);
   };
 
@@ -93,9 +92,7 @@ export default function CartPage() {
         </div>
       </section>
 
-      {/* CART TABLE */}
       <section className="mx-auto max-w-[1240px] px-4 pt-10">
-        {/* desktop table */}
         <div className="hidden md:block">
           <table className="w-full border-collapse">
             <thead style={{ backgroundColor: BROWN }} className="text-white">
@@ -121,7 +118,6 @@ export default function CartPage() {
                     className="align-middle"
                     style={{ borderBottom: `2px solid ${ROW_BORDER}` }}
                   >
-                    {/* product image */}
                     <td className="py-4 px-5">
                       <div className="relative w-[110px] h-[72px] rounded-md overflow-hidden ring-1 ring-gray-300">
                         <Image
@@ -133,17 +129,14 @@ export default function CartPage() {
                       </div>
                     </td>
 
-                    {/* name */}
                     <td className="py-4 px-5">
                       <p className="font-semibold text-Gray-200">{r.name}</p>
                     </td>
 
-                    {/* unit price */}
                     <td className="py-4 px-5 font-semibold text-Gray-200">
                       {r.price}
                     </td>
 
-                    {/* qty */}
                     <td className="py-4 px-5">
                       <div className="flex items-center gap-2">
                         <button
@@ -156,7 +149,7 @@ export default function CartPage() {
                         <input
                           readOnly
                           value={r.qty}
-                          className="w-10 h-7 text-center border border-gray-400 rounded bg-white text-Gray-200"
+                          className="w-10 h-7 text-center border border-gray-400 rounded bg-background-500 text-Gray-200"
                           aria-label="Quantity"
                         />
                         <button
@@ -169,12 +162,10 @@ export default function CartPage() {
                       </div>
                     </td>
 
-                    {/* total */}
                     <td className="py-4 px-5 font-semibold text-Gray-200">
                       {money(rowTotal)}
                     </td>
 
-                    {/* action */}
                     <td className="py-4 px-5">
                       <button
                         onClick={() => remove(r.slug)}
@@ -198,7 +189,6 @@ export default function CartPage() {
           )}
         </div>
 
-        {/* mobile cards */}
         <div className="md:hidden space-y-5">
           {rows.map((r) => {
             const rowTotal = priceToNumber(r.price) * r.qty;
@@ -262,11 +252,9 @@ export default function CartPage() {
         </div>
       </section>
 
-      {/* BOTTOM CARDS */}
       <section className="mx-auto max-w-[1240px] px-4 pb-12 pt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Calculate Shipping / Coupon (left) */}
-          <div className="rounded-lg bg-[#f8efe9] ring-1 ring-gray-200 p-6">
+          <div className="rounded-lg bg-background-500 ring-1 ring-gray-200 p-6">
             <h3 className="text-xl font-bold mb-4" style={{ color: BROWN }}>
               CALCULATE SHIPPING
             </h3>
@@ -307,8 +295,7 @@ export default function CartPage() {
             </div>
           </div>
 
-          {/* Cart Subtotal (right) */}
-          <div className="rounded-lg bg-[#f8efe9] ring-1 ring-gray-200 p-6">
+          <div className="rounded-lg bg-background-500 ring-1 ring-gray-200 p-6">
             <h3 className="text-xl font-bold mb-4" style={{ color: BROWN }}>
               CART SUBTOTAL
             </h3>
