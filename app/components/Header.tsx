@@ -1,62 +1,57 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-
+// 4 food hero photos from Pexels
 const images = [
-  "/images/chicken-burger.jpg",
-  "/images/chicken-burger.jpg",
-  "/images/chicken-burger.jpg",
-  "/images/chicken-burger.jpg",
+  "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1",
+  "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1",
+  "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1",
+
+  "https://images.pexels.com/photos/4109130/pexels-photo-4109130.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1",
 ];
 
-const Header = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export default function Header() {
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2000);
-
-    return () => clearInterval(interval);
+    const id = setInterval(
+      () => setCurrent((i) => (i === images.length - 1 ? 0 : i + 1)),
+      2000
+    );
+    return () => clearInterval(id);
   }, []);
 
   return (
-    <header className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
-      {images.map((img, index) => (
+    <header className="relative w-full h-[500px] sm:h-[520px] md:h-[560px] lg:h-[600px] overflow-hidden">
+      {/* Slides: full-bleed background */}
+      {images.map((src, i) => (
         <div
-          key={index}
-          className={`absolute transition-opacity duration-700 ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-          style={{
-            width: 1440,
-            height: 408,
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+          aria-hidden={i !== current}
         >
           <Image
-            src={img}
-            alt={`Food Image ${index + 1}`}
-            width={1440}
-            height={408}
-            className="object-cover rounded-lg"
-            priority
+            src={src}
+            alt={`Food Image ${i + 1}`}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={i === 0}
           />
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50 pointer-events-none" />
 
+      {/* Copy */}
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between w-full p-4">
         <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 p-4 text-white">
-          <p className="text-sm font-semibold text-brand-500 mb-2">
-            Best in Town
-          </p>
+          <p className="text-sm font-semibold text-brand-500 mb-2">Best in Town</p>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
             ENJOY OUR CHICKEN
             <br className="hidden sm:inline" />
@@ -64,7 +59,7 @@ const Header = () => {
             <br className="hidden sm:inline" /> FAST FOOD
           </h1>
 
-          <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
             <Link href="/menu">
               <button className="px-6 py-3 bg-brand-500 text-white font-semibold rounded-full transition duration-300 ease-in-out text-base sm:text-lg">
                 Order Now
@@ -72,24 +67,22 @@ const Header = () => {
             </Link>
             <p className="text-lg font-medium">Price : $10.50</p>
           </div>
-
         </div>
       </div>
 
-      <div className="absolute bottom-8 z-20 flex justify-center space-x-4">
-        {images.map((_, index) => (
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {images.map((_, i) => (
           <button
-            key={index}
-            onClick={() => setCurrentImageIndex(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-300 ${index === currentImageIndex
-                ? "bg-brand-500 scale-110"
-                : "bg-white opacity-50"
-              }`}
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              i === current ? "bg-brand-500 scale-110" : "bg-white/70"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
     </header>
   );
-};
-
-export default Header;
+}
