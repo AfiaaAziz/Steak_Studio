@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Vendors from "../../components/Vendors";
-import { menuData, bottomMenuItems } from "../../data/menuData";
+import { menuData, bottomMenuItems, type MenuItem } from "../../data/menuData";
 import Link from "next/link";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: { slug: string } };
 
 type ItemCardProps = {
   name: string;
@@ -53,10 +53,10 @@ function MenuItemCard({
   );
 }
 
-export default async function MenuDetail({ params }: Props) {
-  const { slug } = await params;
+export default function MenuDetail({ params }: Props) {
+  const { slug } = params;
 
-  const item = menuData.find((m: any) => m.slug === slug);
+  const item = menuData.find((m) => m.slug === slug);
   if (!item) {
     return (
       <main className="min-h-screen flex items-center justify-center">
@@ -99,7 +99,6 @@ export default async function MenuDetail({ params }: Props) {
               {item.description}
             </p>
 
-            {/* go to /wishlist and pass the slug so the item appears in the list */}
             <Link
               href={`/wishlist?slug=${item.slug}`}
               className="mt-12 md:mt-auto w-max rounded-2xl bg-brand-500 px-8 py-4 text-white text-lg font-semibold shadow-md hover:shadow-lg transition mx-auto md:mx-0"
