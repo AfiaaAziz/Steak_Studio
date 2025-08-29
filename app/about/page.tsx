@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Brain Adams",
     title: "Professional restaurant manager",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet",
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet",
     imageSrc: "/images/team-member1.png",
     socials: { twitter: "#", facebook: "#", instagram: "#", linkedin: "#" },
   },
@@ -41,7 +41,6 @@ const teamMembers = [
 const AboutUsPage = () => {
   return (
     <div className="font-sans min-h-screen">
-
       <section className="relative w-full h-56 sm:h-60 bg-Gray-200 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -131,7 +130,7 @@ const AboutUsPage = () => {
                 started with a passion for perfecting steak soon turned into the
                 most talked-about steak destination in town, celebrated for
                 winning the hearts of our customers with every plate served. Our
-                patrons often say, "Your generosity shows in your servings," a
+                patrons often say, Your generosity shows in your servings, a
                 compliment that embodies our commitment to hearty portions and
                 genuine hospitality. Encouraged by our success and the loyalty
                 of our guests, we opened our second branch on Canal Bank Road.
@@ -156,7 +155,7 @@ const AboutUsPage = () => {
           />
 
           <div className="relative z-20 w-full">
-<div className="container mx-auto flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8">
+            <div className="container mx-auto flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8">
               <div className="lg:w-1/2 text-center lg:text-left">
                 <p className="text-brand-500 font-semibold text-base sm:text-lg mb-2">
                   TASTY AND CRUNCHY
