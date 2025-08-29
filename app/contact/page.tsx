@@ -1,5 +1,7 @@
+
 "use client";
-import React from "react";
+
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,9 +18,52 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Vendors from "../components/Vendors";
 
+type Branch = {
+  name: string;
+  phone: string;
+  addressLines: string[];
+  lat?: number;
+  lng?: number; 
+};
+
+const branches: Branch[] = [
+  {
+    name: "BRANCH 01",
+    phone: "0300 4554999",
+    addressLines: [
+      "IQBAL AVENUE PHASE 01; OPPOSITE SHAUKAT",
+      "KHANAM HOSPITAL, LAHORE-PAKISTAN",
+    ],
+    // lat: 31.470123,
+    // lng: 74.300456,
+  },
+  {
+    name: "BRANCH 02",
+    phone: "0302 4554999",
+    addressLines: [
+      "IQBAL AVENUE PHASE 03; MAIN CANAL",
+      "BANK ROAD, LAHORE-PAKISTAN",
+    ],
+    // lat: 31.475678,
+    // lng: 74.315432,
+  },
+];
+
+const buildEmbedSrc = (b: Branch) => {
+  if (typeof b.lat === "number" && typeof b.lng === "number") {
+    return `https://www.google.com/maps?q=${b.lat},${b.lng}&z=16&output=embed`;
+  }
+  const query = encodeURIComponent(b.addressLines.join(", "));
+  return `https://www.google.com/maps?q=${query}&z=16&output=embed`;
+};
+
 const ContactUsPage = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = useMemo(() => branches[activeIndex], [activeIndex]);
+
   return (
     <div className="flex flex-col bg-background-500">
+      {/* Hero */}
       <section className="relative w-full h-60 bg-Gray-200 flex items-center justify-center overflow-hidden">
         <Image
           src="/images/contact-banner.png"
@@ -39,8 +84,26 @@ const ContactUsPage = () => {
 
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/2 p-6 ">
-            <h2 className="text-2xl font-bold text-brand-500 mb-6">ADDRESS</h2>
+          <div className="lg:w-1/2 p-6 rounded-xl bg-background-500">
+            <div className="flex gap-2 mb-6">
+              {branches.map((b, i) => (
+                <button
+                  key={b.name}
+                  onClick={() => setActiveIndex(i)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
+                    i === activeIndex
+                      ? "bg-brand-500 text-white"
+                      : "bg-white text-Gray-200 ring-1 ring-gray-300 hover:bg-gray-50"
+                  }`}
+                >
+                  {b.name}
+                </button>
+              ))}
+            </div>
+
+            <h2 className="text-2xl font-bold text-brand-500 mb-6">
+              ADDRESS
+            </h2>
             <div className="space-y-4">
               <div className="flex items-start">
                 <FontAwesomeIcon
@@ -48,16 +111,29 @@ const ContactUsPage = () => {
                   className="text-brand-500 text-xl mt-1 mr-3"
                 />
                 <p className="text-Gray-200 text-lg">
-                  28 Seventh Avenue, Neew York, 10014
+                  {active.addressLines.map((ln, idx) => (
+                    <span key={idx} className="block">
+                      {ln}
+                    </span>
+                  ))}
                 </p>
               </div>
+
               <div className="flex items-start">
                 <FontAwesomeIcon
                   icon={faPhone}
                   className="text-brand-500 text-xl mt-1 mr-3"
                 />
-                <p className="text-Gray-200 text-lg">+880 1630 225 015</p>
+                <p className="text-Gray-200 text-lg">
+                  <a
+                    href={`tel:${active.phone.replace(/\s+/g, "")}`}
+                    className="hover:underline"
+                  >
+                    {active.phone}
+                  </a>
+                </p>
               </div>
+
               <div className="flex items-start">
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -75,9 +151,7 @@ const ContactUsPage = () => {
                 icon={faClock}
                 className="text-brand-500 text-xl mt-1 mr-3"
               />
-              <p className="text-brand-500 text-lg">
-                7:30 AM to 9:30pm on Weekdays
-              </p>
+              <p className="text-brand-500 text-lg">7:30 AM to 9:30 PM</p>
             </div>
 
             <h2 className="text-2xl font-bold text-brand-500 mt-8 mb-4">
@@ -125,18 +199,19 @@ const ContactUsPage = () => {
 
           <div className="lg:w-1/2 h-[400px] lg:h-auto bg-gray-200 rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.4277637622728!2d-74.005972!3d40.741895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25964f40f283d%3A0x6b8015f6067b5744!2s7th%20Ave%2C%20New%20York%2C%20NY%2010014%2C%20USA!5e0!3m2!1sen!2sbd!4v1700685651557!5m2!1sen!2sbd"
+              src={buildEmbedSrc(active)}
               width="100%"
               height="100%"
               style={{ border: 0 }}
-              allowFullScreen={true}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Google Map of New York"
-            ></iframe>
+              title={`${active.name} Map`}
+            />
           </div>
         </div>
       </main>
+
       <Vendors />
     </div>
   );
