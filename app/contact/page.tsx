@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useMemo, useState } from "react";
@@ -23,7 +22,7 @@ type Branch = {
   phone: string;
   addressLines: string[];
   lat?: number;
-  lng?: number; 
+  lng?: number;
 };
 
 const branches: Branch[] = [
@@ -31,11 +30,9 @@ const branches: Branch[] = [
     name: "BRANCH 01",
     phone: "0300 4554999",
     addressLines: [
-      "IQBAL AVENUE PHASE 01; OPPOSITE SHAUKAT",
-      "KHANAM HOSPITAL, LAHORE-PAKISTAN",
+      "IQBAL AVENUE PHASE 01; OPPOSITE SHAUKAT KHANAM HOSPITAL,",
+      "LAHORE-PAKISTAN",
     ],
-    // lat: 31.470123,
-    // lng: 74.300456,
   },
   {
     name: "BRANCH 02",
@@ -44,8 +41,6 @@ const branches: Branch[] = [
       "IQBAL AVENUE PHASE 03; MAIN CANAL",
       "BANK ROAD, LAHORE-PAKISTAN",
     ],
-    // lat: 31.475678,
-    // lng: 74.315432,
   },
 ];
 
@@ -63,18 +58,21 @@ const ContactUsPage = () => {
 
   return (
     <div className="flex flex-col bg-background-500">
-      {/* Hero */}
-      <section className="relative w-full h-60 bg-Gray-200 flex items-center justify-center overflow-hidden">
-        <Image
-          src="/images/contact-banner.png"
-          alt="Contact Us Banner"
-          fill
-          className="object-cover opacity-50"
-          quality={100}
-        />
-        <div className="relative z-10 text-white text-center p-4">
-          <h1 className="text-4xl font-bold mb-2">CONTACT US</h1>
-          <p className="text-lg">
+
+      <section className="relative w-full h-56 sm:h-60 bg-Gray-200 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/about-banner.png"
+            alt="About Us Banner"
+            fill
+            className="object-cover opacity-50"
+            quality={100}
+            priority
+          />
+        </div>
+        <div className="relative z-10 text-white text-center px-4">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">CONTACT US</h1>
+          <p className="text-base sm:text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             <br />
             sed do eiusmod tempor incididunt ut labore et dolore magna.
@@ -82,40 +80,35 @@ const ContactUsPage = () => {
         </div>
       </section>
 
-      <main className="flex-grow container mx-auto px-4 py-12">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-1/2 p-6 rounded-xl bg-background-500">
-            <div className="flex gap-2 mb-6">
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="lg:w-1/2 bg-background-500 p-4 sm:p-6">
+            <div className="flex flex-wrap gap-2 mb-6">
               {branches.map((b, i) => (
                 <button
                   key={b.name}
                   onClick={() => setActiveIndex(i)}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
-                    i === activeIndex
-                      ? "bg-brand-500 text-white"
-                      : "bg-background-500 text-Gray-200 ring-1 ring-gray-300 hover:bg-background-500"
-                  }`}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition ${i === activeIndex
+                    ? "bg-brand-500 text-white"
+                    : "bg-background-500 text-gray-600 ring-1 ring-gray-300"
+                    }`}
                 >
                   {b.name}
                 </button>
               ))}
             </div>
 
-            <h2 className="text-2xl font-bold text-brand-500 mb-6">
-              ADDRESS
-            </h2>
+
+            <h2 className="text-2xl font-bold text-brand-500 mb-6">ADDRESS</h2>
             <div className="space-y-4">
               <div className="flex items-start">
                 <FontAwesomeIcon
                   icon={faMapMarkerAlt}
                   className="text-brand-500 text-xl mt-1 mr-3"
                 />
-                <p className="text-Gray-200 text-lg">
-                  {active.addressLines.map((ln, idx) => (
-                    <span key={idx} className="block">
-                      {ln}
-                    </span>
-                  ))}
+                <p className="text-gray-600 text-lg break-words">
+                  {active.addressLines[0]} <br />
+                  {active.addressLines[1]}
                 </p>
               </div>
 
@@ -124,7 +117,7 @@ const ContactUsPage = () => {
                   icon={faPhone}
                   className="text-brand-500 text-xl mt-1 mr-3"
                 />
-                <p className="text-Gray-200 text-lg">
+                <p className="text-gray-600 text-lg">
                   <a
                     href={`tel:${active.phone.replace(/\s+/g, "")}`}
                     className="hover:underline"
@@ -139,7 +132,7 @@ const ContactUsPage = () => {
                   icon={faEnvelope}
                   className="text-brand-500 text-xl mt-1 mr-3"
                 />
-                <p className="text-Gray-200 text-lg">resturents@gmail.com</p>
+                <p className="text-gray-600 text-lg">resturents@gmail.com</p>
               </div>
             </div>
 
@@ -154,60 +147,45 @@ const ContactUsPage = () => {
               <p className="text-brand-500 text-lg">7:30 AM to 9:30 PM</p>
             </div>
 
-            <h2 className="text-2xl font-bold text-brand-500 mt-8 mb-4">
-              FOLLOW US
-            </h2>
-            <div className="flex space-x-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-500 hover:text-brand-500 transition duration-300"
-                aria-label="Facebook"
-              >
-                <FontAwesomeIcon icon={faFacebookF} className="text-2xl" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-500 hover:text-brand-500 transition duration-300"
-                aria-label="Twitter"
-              >
-                <FontAwesomeIcon icon={faTwitter} className="text-2xl" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-500 hover:text-brand-500 transition duration-300"
-                aria-label="Instagram"
-              >
-                <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-500 hover:text-brand-500 transition duration-300"
-                aria-label="LinkedIn"
-              >
-                <FontAwesomeIcon icon={faLinkedinIn} className="text-2xl" />
-              </a>
+            <div className="mt-6">
+              <h2 className="text-2xl font-bold text-brand-500 mb-4">
+                FOLLOW US
+              </h2>
+              <div className="flex space-x-4">
+                <FontAwesomeIcon
+                  icon={faFacebookF}
+                  className="text-2xl text-brand-500"
+                />
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  className="text-2xl text-brand-500"
+                />
+                <FontAwesomeIcon
+                  icon={faInstagram}
+                  className="text-2xl text-brand-500"
+                />
+                <FontAwesomeIcon
+                  icon={faLinkedinIn}
+                  className="text-2xl text-brand-500"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="lg:w-1/2 h-[400px] lg:h-auto bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <iframe
-              src={buildEmbedSrc(active)}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`${active.name} Map`}
-            />
+          <div className="lg:w-1/2 flex justify-center items-center">
+            <div className="w-full max-w-[557px]">
+              <div className="relative w-full" style={{ paddingTop: "70.2%" }}>
+                <iframe
+                  src={buildEmbedSrc(active)}
+                  className="absolute inset-0 w-full h-full border-0"
+                  style={{ border: "none" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`${active.name} Map`}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </main>
