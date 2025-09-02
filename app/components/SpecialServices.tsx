@@ -60,7 +60,7 @@ const SpecialServices = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-300 border-2 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 border-2 ${
                 index === currentIndex
                   ? "bg-brand-500 border-brand-500"
                   : "bg-transparent border-brand-500 hover:bg-brand-500"

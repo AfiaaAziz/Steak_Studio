@@ -57,7 +57,7 @@ const ContactUsPage = () => {
   const active = useMemo(() => branches[activeIndex], [activeIndex]);
 
   return (
-    <div className="flex flex-col bg-background-500">
+    <div className="flex flex-col bg-background-500" >
 
       <section className="relative w-full h-56 sm:h-60 bg-Gray-200 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

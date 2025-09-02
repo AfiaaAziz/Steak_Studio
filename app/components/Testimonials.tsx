@@ -3,10 +3,34 @@ import React, { useState } from "react";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { id: 1, text: "A very good and so was the service. I had the mushroom risotto with scallops which was awesome. I had a burger over greens...", author: "Robert M. Dixon", imageSrc: "/images/guests_1.png", rating: 3 },
-  { id: 2, text: "Also very good and so was the service. I had the mushroom risotto with scallops which was awesome. My wife had a burger over greens...", author: "Bernadette R. Martin", imageSrc: "/images/guests_1.png", rating: 4 },
-  { id: 3, text: "Also very good and so was the service. I had the mushroom risotto with scallops which was awesome. My wife had a burger over greens...", author: "Regina D. Leonard", imageSrc: "/images/guests_1.png", rating: 5 },
-  { id: 4, text: "Also very good and so was the service. I had the mushroom risotto with scallops which was awesome. My wife had a burger over greens...", author: "Walter S. Mclean", imageSrc: "/images/guests_1.png", rating: 2 },
+  {
+    id: 1,
+    text: "A very good and so was the service. I had the mushroom risotto with scallops which was awesome. I had a burger over greens...",
+    author: "Robert M. Dixon",
+    imageSrc: "/images/guests_1.png",
+    rating: 3,
+  },
+  {
+    id: 2,
+    text: "Also very good and so was the service. I had the mushroom risotto with scallops which was awesome. My wife had a burger over greens...",
+    author: "Bernadette R. Martin",
+    imageSrc: "/images/guests_1.png",
+    rating: 4,
+  },
+  {
+    id: 3,
+    text: "Also very good and so was the service. I had the mushroom risotto with scallops which was awesome. My wife had a burger over greens...",
+    author: "Regina D. Leonard",
+    imageSrc: "/images/guests_1.png",
+    rating: 5,
+  },
+  {
+    id: 4,
+    text: "Also very good and so was the service. I had the mushroom risotto with scallops which was awesome. My wife had a burger over greens...",
+    author: "Walter S. Mclean",
+    imageSrc: "/images/guests_1.png",
+    rating: 2,
+  },
 ];
 
 const TestimonialSection = () => {
@@ -15,9 +39,12 @@ const TestimonialSection = () => {
   const handleDotClick = (index: number) => setCurrentIndex(index);
 
   const getVisibleTestimonials = () => {
-    const visible: Array<(typeof testimonials)[number] & { position: -1 | 0 | 1 }> = [];
+    const visible: Array<
+      (typeof testimonials)[number] & { position: -1 | 0 | 1 }
+    > = [];
     for (let i = -1 as -1 | 0 | 1; i <= 1; i = (i + 1) as -1 | 0 | 1) {
-      const index = (currentIndex + i + testimonials.length) % testimonials.length;
+      const index =
+        (currentIndex + i + testimonials.length) % testimonials.length;
       visible.push({ ...testimonials[index], position: i });
     }
     return visible;
@@ -28,7 +55,9 @@ const TestimonialSection = () => {
       <Star
         key={index}
         className={`w-4 h-4 ${
-          index < rating ? "text-brand-500 fill-brand-500" : "text-gray-300 fill-gray-300"
+          index < rating
+            ? "text-brand-500 fill-brand-500"
+            : "text-gray-300 fill-gray-300"
         }`}
       />
     ));
@@ -37,8 +66,12 @@ const TestimonialSection = () => {
     <section className="bg-background-500 py-16 w-full">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h3 className="text-brand-500 font-semibold text-lg mb-2">Testimonial</h3>
-          <h2 className="text-4xl font-bold text-Gray-200">Review from our guests</h2>
+          <h3 className="text-brand-500 font-semibold text-lg mb-2">
+            Testimonial
+          </h3>
+          <h2 className="text-4xl font-bold text-Gray-200">
+            Review from our guests
+          </h2>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
@@ -71,7 +104,9 @@ const TestimonialSection = () => {
                   <div className="mb-4">
                     <h3
                       className={`font-bold transition-all duration-500 ${
-                        isCenter ? "text-lg text-Gray-200" : "text-md text-gray-400"
+                        isCenter
+                          ? "text-lg text-Gray-200"
+                          : "text-md text-gray-400"
                       }`}
                     >
                       {t.author}
@@ -86,7 +121,11 @@ const TestimonialSection = () => {
                     {t.text}
                   </p>
 
-                  <div className={`${!isCenter && "hidden"} flex justify-center space-x-1`}>
+                  <div
+                    className={`${
+                      !isCenter && "hidden"
+                    } flex justify-center space-x-1`}
+                  >
                     {renderStars(t.rating)}
                   </div>
                 </div>
@@ -100,7 +139,7 @@ const TestimonialSection = () => {
                 key={index}
                 onClick={() => handleDotClick(index)}
                 aria-label={`Go to testimonial ${index + 1}`}
-                className={`w-4 h-4 rounded-full transition-all duration-300 border-2 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 border-2 ${
                   index === currentIndex
                     ? "bg-brand-500 border-brand-500 scale-125"
                     : "bg-transparent border-gray-400 hover:border-brand-500"

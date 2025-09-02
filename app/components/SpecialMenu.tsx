@@ -68,7 +68,7 @@ const menuItems = [
 
 const SpecialMenu = () => {
   return (
-    <section className="bg-background-500 py-16 w-full">
+    <section className="py-16 sm:py-20 bg-background-500 w-full">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-brand-500 font-bold text-3xl mb-12">
           SPECIAL MENU FOR ALL TIME
@@ -76,26 +76,26 @@ const SpecialMenu = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 place-items-center">
           {menuItems.map((item) => (
-          <div
-  key={item.id}
-  className="w-[180px] h-[180px] flex flex-col items-center justify-center rounded-lg transition duration-300 group hover:bg-brand-500 hover:text-white"
->
-  <Link
-    href={item.link}
-    className="mb-3 flex items-center justify-center"
-  >
-    <Image
-      src={item.imageSrc}
-      alt={item.name}
-      width={108}
-      height={86}
-      className="object-contain transition duration-300 group-hover:scale-110 cursor-pointer"
-    />
-  </Link>
-  <p className="font-semibold text-Gray-200 text-sm group-hover:text-white">
-    {item.name}
-  </p>
-</div>
+            <div
+              key={item.id}
+              className="w-[180px] h-[180px] flex flex-col items-center justify-center rounded-lg transition duration-300 group hover:bg-brand-500 hover:text-white"
+            >
+              <Link
+                href={item.link}
+                className="mb-3 flex items-center justify-center"
+              >
+                <Image
+                  src={item.imageSrc}
+                  alt={item.name}
+                  width={108}
+                  height={86}
+                  className="object-contain transition duration-300 group-hover:scale-110 cursor-pointer"
+                />
+              </Link>
+              <p className="font-semibold text-Gray-200 text-sm group-hover:text-white">
+                {item.name}
+              </p>
+            </div>
 
           ))}
         </div>

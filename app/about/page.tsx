@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -98,8 +99,6 @@ const AboutUsPage = () => {
                 Moorish idol.
               </p>
             </div>
-
-
           </div>
         </div>
       </section>
@@ -141,7 +140,6 @@ const AboutUsPage = () => {
                 of celebrations by offering event organization services
                 including birthday decor and more.
               </p>
-
             </div>
           </div>
         </div>
@@ -154,12 +152,12 @@ const AboutUsPage = () => {
             alt="Our Chef"
             width={511}
             height={462}
-            className="hidden lg:block absolute right-0 -top-[162px] bottom-0 z-10 w-[511px] h-[462px] pointer-events-none select-none"
+            className="hidden lg:block absolute right-12 -top-[162px] bottom-0 z-10 w-[511px] h-[462px] pointer-events-none select-none"
             priority
           />
 
           <div className="relative z-20 w-full">
-            <div className="container mx-auto flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8">
+            <div className="max-w-[1173px] mx-auto px-4 flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8">
               <div className="lg:w-1/2 text-center lg:text-left">
                 <p className="text-brand-500 font-semibold text-base sm:text-lg mb-2">
                   TASTY AND CRUNCHY
