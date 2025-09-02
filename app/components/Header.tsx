@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const images = [
   "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1",
@@ -50,36 +49,6 @@ export default function Header() {
       ))}
 
       <div className="absolute inset-0 bg-black/50 pointer-events-none" />
-
-      <div className="absolute inset-0 z-10">
-        <div className="mx-auto max-w-7xl h-full w-full px-4">
-          <div className="h-full flex flex-col items-center justify-center md:items-start md:justify-center">
-            <div className="w-full md:w-1/2 text-white text-center md:text-left">
-              <p className="text-xs sm:text-sm font-semibold text-brand-500 mb-2">
-                Best in Town
-              </p>
-
-              <h1 className="mb-4 font-extrabold leading-tight text-[clamp(1.6rem,6vw,3.5rem)]">
-                ENJOY OUR CHICKEN
-                <br className="hidden sm:inline" />
-                <span className="text-brand-500"> BURGER</span>
-                <br className="hidden sm:inline" /> FAST FOOD
-              </h1>
-
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-4">
-                <Link href="/menu" className="w-full sm:w-auto">
-                  <button className="w-full sm:w-auto px-6 py-3 bg-brand-500 text-white font-semibold rounded-full transition duration-300 ease-in-out text-base sm:text-lg">
-                    Order Now
-                  </button>
-                </Link>
-                <p className="text-base sm:text-lg font-medium">
-                  Price : $10.50
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3 sm:gap-4">
         {images.map((_, i) => (
