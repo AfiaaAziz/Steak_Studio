@@ -31,9 +31,8 @@ export default function Header() {
       {images.map((src, i) => (
         <div
           key={i}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            i === current ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+            }`}
           aria-hidden={i !== current}
         >
           <Image
@@ -55,10 +54,9 @@ export default function Header() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-4 w-4 sm:h-5 sm:w-5 rounded-full transition-all duration-300 ${
-              i === current ? "bg-brand-500 scale-110" : "bg-white/70"
-            }`}
-            aria-label={`Go to slide ${i + 1}`}
+            className={`h-3 w-3 sm:h-4 sm:w-4 rounded-full transition-all duration-300 ${i === current ? "bg-brand-500 scale-110" : "bg-white/70"
+              }`}
+
           />
         ))}
       </div>
