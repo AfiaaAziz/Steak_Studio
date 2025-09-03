@@ -61,13 +61,20 @@ const OurRestaurant = () => {
 
             <div className="flex items-start gap-4 mb-6">
               <div className="flex-shrink-0 w-14 h-14 rounded-none border-2 border-brand-500 flex items-center justify-center">
-                <Image src="/images/success.png" alt="Book Icon" width={36} height={36} />
+                <Image
+                  src="/images/success.png"
+                  alt="Book Icon"
+                  width={36}
+                  height={36}
+                />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-brand-500 mb-1">Success Story</h3>
+                <h3 className="text-xl font-bold text-brand-500 mb-1">
+                  Success Story
+                </h3>
                 <p className="text-Gray-200 mb-4">
-                  Certain circumstances and owing to the claims of duty obligations of business it
-                  will frequently.
+                  Certain circumstances and owing to the claims of duty
+                  obligations of business it will frequently.
                 </p>
                 <Link href="/about#story">
                   <button className="flex items-center text-brand-500 font-semibold transition-colors duration-300 border-2 border-brand-500 rounded-full px-4 py-2 hover:bg-brand-500 hover:text-white">
@@ -80,13 +87,20 @@ const OurRestaurant = () => {
 
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-none border-2 border-brand-500 flex items-center justify-center">
-                <Image src="/images/passionate.png" alt="Chef Icon" width={36} height={36} />
+                <Image
+                  src="/images/passionate.png"
+                  alt="Chef Icon"
+                  width={36}
+                  height={36}
+                />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-brand-500 mb-1">Passionate Chefs</h3>
+                <h3 className="text-xl font-bold text-brand-500 mb-1">
+                  Passionate Chefs
+                </h3>
                 <p className="text-Gray-200 mb-4">
-                  Duty or the obligations of business it frequently occur pleasures have to be
-                  repudiated.
+                  Duty or the obligations of business it frequently occur
+                  pleasures have to be repudiated.
                 </p>
                 <Link href="/about#chef">
                   <button className="flex items-center text-brand-500 font-semibold transition-colors duration-300 border-2 border-brand-500 rounded-full px-4 py-2 hover:bg-brand-500 hover:text-white">

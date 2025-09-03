@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const WhyWeAreTheBest = () => {
   return (
-    <section className="bg-background-500 py-16 sm:py-20 w-full">
+    <section className="bg-background-500 py-16 w-full">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h3 className="text-brand-500 font-semibold text-lg mb-12 text-center">
           Why We are the best
