@@ -104,7 +104,7 @@ const AboutUsPage = () => {
       </section>
 
       <section id="story" className="bg-background-500 py-12 sm:py-20">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-[1173px] px-4">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-brand-500">
               OUR STORY
