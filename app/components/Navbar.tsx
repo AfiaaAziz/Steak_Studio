@@ -32,7 +32,7 @@ export default function Navbar() {
       <nav className="mx-auto max-w-[1240px] px-4 h-20 sm:h-24 flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="Go to home">
           <Image
-            src="/images/logo.jpg"
+            src="/images/logo.png"
             alt="Steak Studio Logo"
             width={84}
             height={84}
@@ -163,7 +163,7 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between px-4 h-16 border-b">
             <Image
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               alt="Steak Studio Logo"
               width={60}
               height={60}
