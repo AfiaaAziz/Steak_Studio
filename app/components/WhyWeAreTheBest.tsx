@@ -9,33 +9,31 @@ const WhyWeAreTheBest = () => {
           Why We are the best
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
           <div
             role="button"
             tabIndex={0}
             className="
-              group relative flex flex-col items-center w-full p-8 rounded-lg shadow-lg ring-1 ring-gray-200
-              bg-background-500 text-Gray-200 transition-colors duration-300 cursor-pointer select-none
-              supports-[hover:hover]:hover:bg-brand-500 supports-[hover:hover]:hover:text-white
-              active:bg-brand-500 active:text-white
-              focus-visible:bg-brand-500 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
+              group relative flex flex-col items-center justify-center
+              w-full aspect-square p-8
+              rounded-none ring-0
+              bg-background-500 text-Gray-200
+              transition-colors duration-300 cursor-pointer select-none
+              hover:bg-brand-500 hover:text-white
+              focus-visible:bg-brand-500 focus-visible:text-white
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
               active:translate-y-[1px]
             "
           >
             <div className="relative w-32 h-32 mb-6">
-              <Image
-                src="/images/passionate.png"
-                alt="Passionate Chefs"
-                fill
-                className="object-contain"
-              />
+              <Image src="/images/passionate.png" alt="Passionate Chefs" fill className="object-contain" />
               <div
                 className="
-                  absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold
+                  absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10
+                  flex items-center justify-center text-xl font-bold
                   border-4 border-background-500 transition-colors
-                  group-active:bg-white group-active:text-brand-500
+                  group-hover:bg-white group-hover:text-brand-500
                   group-focus-visible:bg-white group-focus-visible:text-brand-500
-                  supports-[hover:hover]:group-hover:bg-white supports-[hover:hover]:group-hover:text-brand-500
                 "
               >
                 1
@@ -52,28 +50,28 @@ const WhyWeAreTheBest = () => {
             role="button"
             tabIndex={0}
             className="
-              group relative flex flex-col items-center w-full p-8 rounded-lg shadow-lg ring-1 ring-gray-200
-              bg-background-500 text-Gray-200 transition-colors duration-300 cursor-pointer select-none
-              supports-[hover:hover]:hover:bg-brand-500 supports-[hover:hover]:hover:text-white
-              active:bg-brand-500 active:text-white
-              focus-visible:bg-brand-500 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
+              group relative flex flex-col items-center justify-center
+              w-full aspect-square p-8
+              rounded-none ring-0
+              bg-background-500 text-Gray-200
+              transition-colors duration-300 cursor-pointer select-none
+              hover:bg-brand-500 hover:text-white
+              focus-visible:bg-brand-500 focus-visible:text-white
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
               active:translate-y-[1px]
             "
           >
             <div className="relative w-32 h-32 mb-6">
-              <Image
-                src="/images/Foods.png"
-                alt="100% Fresh Foods"
-                fill
-                className="object-contain"
-              />
-              <div className="
-                  absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold
+              <Image src="/images/Foods.png" alt="100% Fresh Foods" fill className="object-contain" />
+              <div
+                className="
+                  absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10
+                  flex items-center justify-center text-xl font-bold
                   border-4 border-background-500 transition-colors
-                  group-active:bg-white group-active:text-brand-500
+                  group-hover:bg-white group-hover:text-brand-500
                   group-focus-visible:bg-white group-focus-visible:text-brand-500
-                  supports-[hover:hover]:group-hover:bg-white supports-[hover:hover]:group-hover:text-brand-500
-                ">
+                "
+              >
                 2
               </div>
             </div>
@@ -88,28 +86,28 @@ const WhyWeAreTheBest = () => {
             role="button"
             tabIndex={0}
             className="
-              group relative flex flex-col items-center w-full p-8 rounded-lg shadow-lg ring-1 ring-gray-200
-              bg-background-500 text-Gray-200 transition-colors duration-300 cursor-pointer select-none
-              supports-[hover:hover]:hover:bg-brand-500 supports-[hover:hover]:hover:text-white
-              active:bg-brand-500 active:text-white
-              focus-visible:bg-brand-500 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
+              group relative flex flex-col items-center justify-center
+              w-full aspect-square p-8
+              rounded-none ring-0
+              bg-background-500 text-Gray-200
+              transition-colors duration-300 cursor-pointer select-none
+              hover:bg-brand-500 hover:text-white
+              focus-visible:bg-brand-500 focus-visible:text-white
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500
               active:translate-y-[1px]
             "
           >
             <div className="relative w-32 h-32 mb-6">
-              <Image
-                src="/images/Ambience.png"
-                alt="Memorable Ambience"
-                fill
-                className="object-contain"
-              />
-              <div className="
-                  absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold
+              <Image src="/images/Ambience.png" alt="Memorable Ambience" fill className="object-contain" />
+              <div
+                className="
+                  absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10
+                  flex items-center justify-center text-xl font-bold
                   border-4 border-background-500 transition-colors
-                  group-active:bg-white group-active:text-brand-500
+                  group-hover:bg-white group-hover:text-brand-500
                   group-focus-visible:bg-white group-focus-visible:text-brand-500
-                  supports-[hover:hover]:group-hover:bg-white supports-[hover:hover]:group-hover:text-brand-500
-                ">
+                "
+              >
                 3
               </div>
             </div>
