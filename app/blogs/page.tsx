@@ -4,8 +4,9 @@ import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, Clock, ChevronRight } from "lucide-react";
+import Vendors from "../components/Vendors";
 
-// ---------- Types ----------
+
 type Category = "All" | "News" | "Recipes" | "Events" | "Tips";
 type Post = {
   slug: string;
@@ -19,7 +20,6 @@ type Post = {
   featured?: boolean;
 };
 
-// ---------- Data (Pexels) ----------
 const posts: Post[] = [
   {
     slug: "summer-grill-secrets",
@@ -216,7 +216,6 @@ const posts: Post[] = [
   },
 ];
 
-// ---------- UI helpers ----------
 const categories: Category[] = ["All", "News", "Recipes", "Events", "Tips"];
 
 function byNewest(a: Post, b: Post) {
@@ -274,7 +273,6 @@ function Card({ post }: { post: Post }) {
   );
 }
 
-// ---------- Page ----------
 export default function BlogPage() {
   const [active, setActive] = useState<Category>("All");
   const [q, setQ] = useState("");
@@ -303,10 +301,9 @@ export default function BlogPage() {
   const canLoadMore = visible < filtered.length;
 
   return (
+     <>
     <section className="bg-background-500 py-16 sm:py-20 w-full">
-      {/* SAME container as Specials.tsx */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
           <p className="tracking-[0.15em] text-xs font-semibold mb-3 text-brand-500">
             BLOG
@@ -319,7 +316,6 @@ export default function BlogPage() {
           </p>
         </div>
 
-        {/* Controls */}
         <div className="mb-8 flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-4">
           <div className="flex-1 grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
             {categories.map((c) => (
@@ -355,7 +351,6 @@ export default function BlogPage() {
           </div>
         </div>
 
-        {/* Featured */}
         <Link
           href={`/blog/${featured.slug}`}
           className="group grid grid-cols-1 lg:grid-cols-7 gap-6 lg:gap-8 border border-brand-500 rounded-none overflow-hidden mb-10"
@@ -406,14 +401,12 @@ export default function BlogPage() {
           </div>
         </Link>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {shown.map((p) => (
             <Card key={p.slug} post={p} />
           ))}
         </div>
 
-        {/* Load more */}
         {canLoadMore && (
           <div className="mt-10 flex justify-center">
             <button
@@ -426,5 +419,8 @@ export default function BlogPage() {
         )}
       </div>
     </section>
+    <Vendors />
+    
+    </>
   );
 }

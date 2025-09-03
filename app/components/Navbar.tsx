@@ -60,7 +60,7 @@ export default function Navbar() {
           <li>
             <Link
               className="text-Gray-200 hover:text-brand-500 font-semibold"
-              href="/events"
+              href="/event"
             >
               EVENTS
             </Link>
