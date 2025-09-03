@@ -38,7 +38,6 @@ export default function Navbar() {
             height={84}
             className="h-12 w-12 sm:h-16 sm:w-16 md:h-[84px] md:w-[83.15px] object-contain"
           />
-
         </Link>
 
         <ul className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -145,12 +144,14 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`md:hidden fixed inset-0 ${open ? "pointer-events-auto" : "pointer-events-none"
-          } z-50`}
+        className={`md:hidden fixed inset-0 ${
+          open ? "pointer-events-auto" : "pointer-events-none"
+        } z-50`}
       >
         <div
-          className={`absolute inset-0 bg-black/30 transition-opacity ${open ? "opacity-100" : "opacity-0"
-            }`}
+          className={`absolute inset-0 bg-black/30 transition-opacity ${
+            open ? "opacity-100" : "opacity-0"
+          }`}
           onClick={close}
         />
         <div
