@@ -25,13 +25,12 @@ const SpecialServices = () => {
   return (
     <section className="bg-background-500 py-16 w-full">
       <div className="container mx-auto px-4 text-center">
-       
-         <div className="text-center mb-12">
+        <div className="text-center mb-12">
           <h3 className="text-brand-500 font-semibold text-lg mb-2">
-          SPECIAL SERVICES
+            SPECIAL SERVICES
           </h3>
           <h2 className="text-4xl font-bold text-Gray-200">
-          What Special Services We Are Offering Now
+            What Special Services We Are Offering Now
           </h2>
         </div>
 
@@ -41,15 +40,12 @@ const SpecialServices = () => {
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {services.map((service) => (
-              <div
-                key={service.id}
-                className="w-full flex-shrink-0 px-6 md:px-10"
-              >
+              <div key={service.id} className="w-full flex-shrink-0 px-6 md:px-10">
                 <div className="text-center px-4 md:px-8">
                   <h3 className="text-2xl md:text-3xl font-bold text-brand-500 mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-Gray-200 leading-relaxed max-w-lg mx-auto">
+                  <p className="text-Gray-200 leading-relaxed max-w-lg mx-auto text-lg md:text-xl">
                     {service.text}
                   </p>
                 </div>
