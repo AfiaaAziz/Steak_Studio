@@ -147,10 +147,10 @@ export default function SpecialsSection() {
 
   const imgByCategory: Record<Category, string> = {
     Breakfast: "/images/breakfast.png",
-    Lunch: "/images/lunch.jpg",
-    Dinner: "/images/dinner.jpg",
-    Starters: "/images/starters.jpg",
-    Beverages: "/images/beverages.jpg",
+    Lunch: "/images/breakfast.png",
+    Dinner: "/images/breakfast.png",
+    Starters: "/images/breakfast.png",
+    Beverages: "/images/breakfast.png",
   };
 
   const prev = () =>
@@ -230,7 +230,6 @@ export default function SpecialsSection() {
               ))}
             </div>
           </div>
-
           <div
             role="tablist"
             className="hidden lg:grid grid-cols-5 gap-6 place-items-center"
