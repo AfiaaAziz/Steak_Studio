@@ -19,8 +19,7 @@ const menuItems = [
 const Card = ({ item }: { item: (typeof menuItems)[number] }) => (
   <div className="w-[180px] h-[180px] rounded-lg transition duration-300 group hover:bg-brand-500 hover:text-white flex flex-col items-center justify-center">
     <Link href={item.link} className="flex items-center justify-center">
-    
-      <div className="relative w-[180.3px] h-[86px] mb-2">
+      <div className="relative w-[180.3px] h-[100px] mb-5">
         <Image
           src={item.imageSrc}
           alt={item.name}
@@ -38,7 +37,7 @@ const Card = ({ item }: { item: (typeof menuItems)[number] }) => (
 
 const SpecialMenu = () => {
   const firstSix = menuItems.slice(0, 6);
-  const lastFour = menuItems.slice(6); 
+  const lastFour = menuItems.slice(6);
 
   return (
     <section className="py-16 sm:py-20 bg-background-500 w-full">
@@ -47,7 +46,6 @@ const SpecialMenu = () => {
           SPECIAL MENU FOR ALL TIME
         </h2>
 
-     
         <div
           className="
             grid justify-start gap-3
@@ -61,19 +59,13 @@ const SpecialMenu = () => {
             <Card key={item.id} item={item} />
           ))}
 
-          <div
-            className="hidden lg:block w-[180px] h-[180px]"
-            aria-hidden="true"
-          />
+          <div className="hidden lg:block w-[180px] h-[180px]" aria-hidden="true" />
 
           {lastFour.map((item) => (
             <Card key={item.id} item={item} />
           ))}
 
-          <div
-            className="hidden lg:block w-[180px] h-[180px]"
-            aria-hidden="true"
-          />
+          <div className="hidden lg:block w-[180px] h-[180px]" aria-hidden="true" />
         </div>
       </div>
     </section>
