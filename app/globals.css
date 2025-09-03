@@ -12,6 +12,10 @@
   --color-White-200: #FEFEFE
 }
 
+html, body{
+  overflow-x:hidden;
+}
+
 
 @layer utilities {
   @keyframes scroll {
