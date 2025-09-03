@@ -213,7 +213,7 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/events"
+                  href="/event"
                   onClick={close}
                   className="block px-2 py-3 text-Gray-200 font-semibold hover:text-brand-500"
                 >
@@ -231,7 +231,7 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/blogs"
                   onClick={close}
                   className="block px-2 py-3 text-Gray-200 font-semibold hover:text-brand-500"
                 >
