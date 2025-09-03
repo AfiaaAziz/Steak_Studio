@@ -28,7 +28,7 @@ export default function Navbar() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-White-200 border-b border-gray-200">
+<header className="fixed top-0 inset-x-0 z-50 bg-White-200 border-b border-gray-200">
       <nav className="mx-auto max-w-[1240px] px-4 h-20 sm:h-24 flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="Go to home">
           <Image
