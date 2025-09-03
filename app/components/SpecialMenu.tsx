@@ -96,7 +96,6 @@ const SpecialMenu = () => {
                 {item.name}
               </p>
             </div>
-
           ))}
         </div>
       </div>

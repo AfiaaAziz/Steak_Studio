@@ -25,12 +25,15 @@ const SpecialServices = () => {
   return (
     <section className="bg-background-500 py-16 w-full">
       <div className="container mx-auto px-4 text-center">
-        <h3 className="text-Gray-200 font-semibold text-lg mb-2 tracking-wide">
+       
+         <div className="text-center mb-12">
+          <h3 className="text-brand-500 font-semibold text-lg mb-2">
           SPECIAL SERVICES
-        </h3>
-        <h2 className="text-brand-500 text-base md:text-lg font-semibold mb-10">
+          </h3>
+          <h2 className="text-4xl font-bold text-Gray-200">
           What Special Services We Are Offering Now
-        </h2>
+          </h2>
+        </div>
 
         <div className="relative max-w-3xl mx-auto overflow-hidden">
           <div
