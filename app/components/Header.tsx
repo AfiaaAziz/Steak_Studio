@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 const images = [
@@ -11,14 +11,26 @@ const images = [
 
 export default function Header() {
   const [current, setCurrent] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoSlide = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrent((i) => (i === images.length - 1 ? 0 : i + 1));
+    }, 4000);
+  };
 
   useEffect(() => {
-    const id = setInterval(
-      () => setCurrent((i) => (i === images.length - 1 ? 0 : i + 1)),
-      2000
-    );
-    return () => clearInterval(id);
+    startAutoSlide();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
+
+  const handleDotClick = (index: number) => {
+    setCurrent(index);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    startAutoSlide();
+  };
 
   return (
     <header
@@ -31,9 +43,8 @@ export default function Header() {
       {images.map((src, i) => (
         <div
           key={i}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            i === current ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === current ? "opacity-100" : "opacity-0"
+            }`}
           aria-hidden={i !== current}
         >
           <Image
@@ -54,10 +65,9 @@ export default function Header() {
         {images.map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
-            className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-all duration-300 ${
-              i === current ? "bg-brand-500 scale-110" : "bg-white/70"
-            }`}
+            onClick={() => handleDotClick(i)}
+            className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-all duration-300 ${i === current ? "bg-brand-500 scale-110" : "bg-white/70"
+              }`}
           />
         ))}
       </div>

@@ -42,6 +42,7 @@ const teamMembers = [
 const AboutUsPage = () => {
   return (
     <div className="font-sans min-h-screen">
+      {/* Banner */}
       <section className="relative w-full h-56 sm:h-60 bg-Gray-200 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -61,6 +62,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* About block */}
       <section className="bg-background-500 py-12 sm:py-20">
         <div className="flex justify-center px-4">
           <div
@@ -103,6 +105,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* OUR STORY */}
       <section id="story" className="bg-background-500 py-12 sm:py-20">
         <div className="mx-auto max-w-[1173px] px-4">
           <div className="text-center mb-8 sm:mb-12">
@@ -145,19 +148,22 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* CHEF banner */}
       <section className="relative bg-background-500 overflow-visible pt-0 lg:pt-[162px]">
         <div className="relative mx-auto max-w-[1440px] bg-chef-500 overflow-visible px-4 sm:px-6 py-8 sm:py-10 lg:px-0 lg:py-0 lg:h-[300px]">
-          <Image
-            src="/images/chef.png"
-            alt="Our Chef"
-            width={511}
-            height={462}
-            className="hidden lg:block absolute right-12 -top-[162px] bottom-0 z-10 w-[511px] h-[462px] pointer-events-none select-none"
-            priority
-          />
-
+          {/* ⬇️ Moved the absolute chef image INSIDE the inner 1173px container and aligned to right:0 */}
           <div className="relative z-20 w-full">
-            <div className="max-w-[1173px] mx-auto px-4 flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8">
+            <div className="max-w-[1173px] mx-auto px-4 flex flex-col lg:flex-row justify-between gap-6 sm:gap-8 lg:h-[300px] lg:items-center lg:pt-8 relative">
+              {/* chef image aligned with OUR STORY image (right edge of the same 1173px container) */}
+              <Image
+                src="/images/chef.png"
+                alt="Our Chef"
+                width={511}
+                height={462}
+                className="hidden lg:block absolute right-0 -top-[162px] z-10 w-[511px] h-[462px] pointer-events-none select-none"
+                priority
+              />
+
               <div className="lg:w-1/2 text-center lg:text-left">
                 <p className="text-brand-500 font-semibold text-base sm:text-lg mb-2">
                   TASTY AND CRUNCHY
@@ -179,11 +185,10 @@ const AboutUsPage = () => {
                 </Link>
               </div>
 
-              <div
-                className="hidden lg:block lg:w-[511px] shrink-0"
-                aria-hidden
-              />
+              {/* keep the spacer so text doesn't underlap the image */}
+              <div className="hidden lg:block lg:w-[511px] shrink-0" aria-hidden />
 
+              {/* mobile chef image (unchanged) */}
               <div className="lg:hidden mt-6 flex justify-center">
                 <Image
                   src="/images/chef.png"
@@ -198,6 +203,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* Team */}
       <section id="chef" className="bg-background-500 py-12 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
