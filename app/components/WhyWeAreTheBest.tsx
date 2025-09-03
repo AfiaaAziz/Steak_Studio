@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const WhyWeAreTheBest = () => {
   return (
-    <section className="bg-background-500 py-16 w-full">
-      <div className="container mx-auto px-4 text-center">
-        <h3 className="text-brand-500 font-semibold text-lg mb-12">
+    <section className="bg-background-500 py-16 sm:py-20 w-full">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h3 className="text-brand-500 font-semibold text-lg mb-12 text-center">
           Why We are the best
         </h3>
 
@@ -14,7 +14,7 @@ const WhyWeAreTheBest = () => {
             role="button"
             tabIndex={0}
             className="
-              group relative flex flex-col items-center max-w-sm p-8 rounded-lg shadow-lg ring-1 ring-gray-200
+              group relative flex flex-col items-center w-full p-8 rounded-lg shadow-lg ring-1 ring-gray-200
               bg-background-500 text-Gray-200 transition-colors duration-300 cursor-pointer select-none
               supports-[hover:hover]:hover:bg-brand-500 supports-[hover:hover]:hover:text-white
               active:bg-brand-500 active:text-white
@@ -52,7 +52,7 @@ const WhyWeAreTheBest = () => {
             role="button"
             tabIndex={0}
             className="
-              group relative flex flex-col items-center max-w-sm p-8 rounded-lg shadow-lg ring-1 ring-gray-200
+              group relative flex flex-col items-center w-full p-8 rounded-lg shadow-lg ring-1 ring-gray-200
               bg-background-500 text-Gray-200 transition-colors duration-300 cursor-pointer select-none
               supports-[hover:hover]:hover:bg-brand-500 supports-[hover:hover]:hover:text-white
               active:bg-brand-500 active:text-white
@@ -67,15 +67,13 @@ const WhyWeAreTheBest = () => {
                 fill
                 className="object-contain"
               />
-              <div
-                className="
+              <div className="
                   absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold
                   border-4 border-background-500 transition-colors
                   group-active:bg-white group-active:text-brand-500
                   group-focus-visible:bg-white group-focus-visible:text-brand-500
                   supports-[hover:hover]:group-hover:bg-white supports-[hover:hover]:group-hover:text-brand-500
-                "
-              >
+                ">
                 2
               </div>
             </div>
@@ -90,7 +88,7 @@ const WhyWeAreTheBest = () => {
             role="button"
             tabIndex={0}
             className="
-              group relative flex flex-col items-center max-w-sm p-8 rounded-lg shadow-lg ring-1 ring-gray-200
+              group relative flex flex-col items-center w-full p-8 rounded-lg shadow-lg ring-1 ring-gray-200
               bg-background-500 text-Gray-200 transition-colors duration-300 cursor-pointer select-none
               supports-[hover:hover]:hover:bg-brand-500 supports-[hover:hover]:hover:text-white
               active:bg-brand-500 active:text-white
@@ -105,15 +103,13 @@ const WhyWeAreTheBest = () => {
                 fill
                 className="object-contain"
               />
-              <div
-                className="
+              <div className="
                   absolute -right-2 top-0 bg-brand-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold
                   border-4 border-background-500 transition-colors
                   group-active:bg-white group-active:text-brand-500
                   group-focus-visible:bg-white group-focus-visible:text-brand-500
                   supports-[hover:hover]:group-hover:bg-white supports-[hover:hover]:group-hover:text-brand-500
-                "
-              >
+                ">
                 3
               </div>
             </div>
