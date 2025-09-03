@@ -55,7 +55,7 @@ export default function Header() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-3 w-3 sm:h-4 sm:w-4 rounded-full transition-all duration-300 ${
+            className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-all duration-300 ${
               i === current ? "bg-brand-500 scale-110" : "bg-white/70"
             }`}
           />
